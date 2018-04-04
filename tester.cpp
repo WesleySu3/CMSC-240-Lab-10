@@ -81,106 +81,131 @@ int main()
 
 	cout << "Test Student:---------------------------------" << endl << endl;
 	
-	cout << "Test Constructor: --------------------------------" << endl << endl;
+	cout << "Test Constructor: --------------------------------" << endl;
+	cout << "default constructor: +++++++++++++++++++++++" << endl; 
+	Student stDf;
+	//information printed out should be default value
+	cout << "last name: " << stDf.getLastName() << " -- []" << endl;
+	cout << "URID: " << stDf.getURID() << " -- [0]" << endl;
+	cout << "GPA: " << stDf.getGPA() << " -- [0]" << endl;
+	cout << "Admission Year: " << (stDf.getAdmitDate().tm_year + 1990) << " -- [1990]" << endl;
+	stDf.setGPA(0.5);		//set new GPA
+	stDf.setAdmitDate(1, 5, 2010);	//set new admission date
 
-	Student st0(const Student& p);
-	
+	//new GPA and Admission year should be printed out
+	cout << "New GPA: " << stDf.getGPA() << " -- [0.5]" << endl;
+	cout << "New Admission Year: " << (stDf.getAdmitDate().tm_year + 1990) << " -- [2010]" << endl << endl;
+
+	cout << "copy constructor: +++++++++++++++++++++" << endl;
+	Student stCp(stDf);
+	cout << "URID: " << stCp.getURID() << " -- [0]" << endl;
+	cout << "GPA: " << stCp.getGPA() << " -- [0.5]" << endl;
+	cout << "Admission Year: " << (stCp.getAdmitDate().tm_year + 1990) << " -- [2010]" << endl;
+	//set new URID, GPA, and Admission Year
+	stCp.setURID(11280921);
+	stCp.setGPA(4.0);
+	stCp.setAdmitDate(1, 5, 2017);
+	cout << "URID: " << stCp.getURID() << " -- [11280921]" << endl;
+        cout << "GPA: " << stCp.getGPA() << " -- [4]" << endl;
+	cout << "Admission Year: " << (stCp.getAdmitDate().tm_year + 1990) << " -- [2017]" << endl << endl;
+
+	cout << "normal constructor: +++++++++++++++++++++:" << endl;	
 	Student st1(12345678, "ab1cd", "Bee", "Apple", 1, 1, 2000, "apple.bee@richmond.edu",
         "28 Westhampton Way", 804123123, 1, 9, 2013, Student::UNDEFINED, true, 2.5);
+	cout<< "NetID: " << st1.getNetID() << " -- [ab1cd]" << endl;
+	cout << "Units Completed: " << st1.getUnitsCompleted() << " -- [2.5]" << endl << endl;	
+	cout << "------------------------------------" << endl;
 
-        cout << "Test courses methods(getter/setter/remover/etc):" << endl;
-        cout << "------------------------------------" << endl << endl;
 
-	cout << "setter: ++++++++++++++++++++" << endl;
+        cout << "Test courses methods(getter/setter/adder/remover/clearer):" << endl;
+        cout << "------------------------------------" << endl;
+	//setter
 	list<string> newCourses;
 	newCourses.push_back("cs150");
 	newCourses.push_back("cs221");
+	cout << "courses set: " << endl;
 	st1.setCourses(newCourses);
 	st1.printCourses();
 	cout << "[cs150" << endl << " cs221]" << endl << endl;
-
-	cout << "getter: ++++++++++++++++++++" << endl;
+	
+	//getter
 	list<string> currentCourse = st1.getCourse();
 	list<string>::iterator itr;
+	cout << "get courses: " << endl;
 	for (itr = currentCourse.begin(); itr != currentCourse.end(); ++itr)
                 std::cout << *itr << std::endl;
 	cout << "[cs150" << endl << " cs221]" << endl << endl;
-
-	cout << "adder: ++++++++++++++++++++" << endl;
+	
+	//adder
 	st1.addCourse("cs240");
+	cout << "new course added: " << endl;
         st1.printCourses();
 	cout << "[cs150" << endl << " cs221" << endl << " cs240]" << endl << endl; 
-
-	cout << "remover: ++++++++++++++++++++" << endl;
+	
+	//remover
 	st1.removeCourse("cs150");
+	cout << "one course removed: " << endl;
 	st1.printCourses();
 	cout << "[cs221" << endl << " cs240]" << endl << endl;
 	
-	cout << "clearer: ++++++++++++++++++++" << endl;
+	//clearer
 	st1.clearCourses();
+	cout << "courses cleared: " << endl; 
 	st1.printCourses();
-
-	st1.printCourses();
-	cout << "[]" << endl << endl;
+	cout << "[]" << endl;
 
 	cout << "----------------------------------------------" << endl << endl;
 
 	cout << "Test other getters:" << endl;
-	cout << "------------------------------------" << endl << endl;
+	cout << "------------------------------------" << endl;
 
+	cout << "admission date: ";
 	cout << (st1.getAdmitDate().tm_mon + 1) << "/" << st1.getAdmitDate().tm_mday <<
-		"/" << (st1.getAdmitDate().tm_year + 1990) << endl;
-	cout << "[9/1/2013]" << endl << endl;
+		"/" << (st1.getAdmitDate().tm_year + 1990) <<  " -- [9/1/2013]" << endl;
 
+	cout << "school: ";
 	switch(st1.getSchool()) {
-                case 0: cout << "AS" << endl; break;
-                case 1: cout << "JSLS" << endl; break;
-                case 2: cout << "LAW" << endl; break;
-                case 3: cout << "RSB" << endl; break;
-                case 4: cout << "SPCS" << endl; break;
-                case 5: cout << "UNDEFINED" << endl; break;
+                case 0: cout << "AS"; break;
+                case 1: cout << "JSLS"; break;
+                case 2: cout << "LAW"; break;
+                case 3: cout << "RSB"; break;
+                case 4: cout << "SPCS"; break;
+                case 5: cout << "UNDEFINED"; break;
         }
-	cout << "[UNDEFINED]" << endl << endl;
+	cout << "-- [UNDEFINED]" << endl;
 
-	cout << st1.getGPA() << endl;
-	cout << "[0]" << endl << endl;
-
-	cout << st1.getUnitsCompleted() << endl;
-	cout << "[2.5]" << endl << endl;
-
-	cout << st1.isFullTime() << endl;
-	cout << "[1]" << endl << endl;
-
+	cout << "GPA: "<< st1.getGPA() << " -- [0]" << endl;
+	cout << "units completed: " << st1.getUnitsCompleted() << " -- [2.5]" << endl;
+	cout << "is full time: " << st1.isFullTime() << " -- [1]" << endl;
 	cout << "----------------------------------------------" << endl << endl;
 
 	cout << "Test other setters:" << endl;
+	cout << "------------------------------------" << endl;
 	st1.setAdmitDate(1, 5, 2014);
+	cout << "new admission date: ";
 	cout << (st1.getAdmitDate().tm_mon + 1) << "/" << st1.getAdmitDate().tm_mday <<
-                "/" << (st1.getAdmitDate().tm_year + 1990) << endl;
-	cout << "[5/1/2014]" << endl << endl;
+                "/" << (st1.getAdmitDate().tm_year + 1990) << " -- [5/1/2014]" << endl;
 
 	st1.setSchool(Student::AS);
+	cout << "new school: ";
 	switch(st1.getSchool()) {
-		case 0: cout << "AS" << endl; break;
-		case 1: cout << "JSLS" << endl; break;
-		case 2: cout << "LAW" << endl; break;
-		case 3: cout << "RSB" << endl; break;
-		case 4: cout << "SPCS" << endl; break;
-		case 5: cout << "UNDEFINED" << endl; break;
+		case 0: cout << "AS"; break;
+		case 1: cout << "JSLS"; break;
+		case 2: cout << "LAW"; break;
+		case 3: cout << "RSB"; break;
+		case 4: cout << "SPCS"; break;
+		case 5: cout << "UNDEFINED"; break;
 	}
-	cout << "[AS]" << endl << endl;
+	cout << " -- [AS]" << endl;
 
 	st1.setGPA(3.9);
-	cout << st1.getGPA() << endl;
-	cout << "[3.9]" << endl << endl;
+	cout << "new GPA: " << st1.getGPA() << " -- [3.9]" << endl;
 
 	st1.setUnitsCompleted(10.5);
-	cout << st1.getUnitsCompleted() << endl;
-	cout << "[10.5]" << endl << endl;
+	cout << "new units completed: " << st1.getUnitsCompleted() << " -- [10.5]" << endl;
 
 	st1.setFullTimeStatus(false);
-	cout << st1.isFullTime() << endl;
-	cout << "[0]" << endl << endl;
+	cout << "new is full time: " << st1.isFullTime() << " -- [0]" << endl;
 
 	cout << "----------------------------------------------" << endl << endl;
 	return 0;
