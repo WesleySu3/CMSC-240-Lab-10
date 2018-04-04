@@ -13,8 +13,8 @@ int main()
 	cout << "Testing constructors" << endl;
 	cout << "--------------------------------------------" << endl << endl;
 
-	cout << "Person a(1, \"2\", \"3\", \"4\", 5, 6, 1907, \"8\", \"9\", 10);" << endl;
-	Person a(1, "2", "3", "4", 5, 6, 1907, "8", "9", 10);
+	cout << "Person a(1, \"2\", \"3\", \"4\", 5, 6, 2018, \"8\", \"9\", 10);" << endl;
+	Person a(1, "2", "3", "4", 5, 6, 2018, "8", "9", 10);
 
 	cout << "Person b(a);" << endl << endl;
 	Person b(a);
@@ -29,7 +29,7 @@ int main()
 
 	struct tm bday = b.getDateOfBirth();
 	cout << "Date of birth: " << bday.tm_mon << "/" << bday.tm_mday << "/"
-		 << bday.tm_year << " [Expected: 5/6/7]" << endl << endl;
+		 << bday.tm_year << " [Expected: 5/5/118]" << endl << endl;
 
 	cout << "Email: " << b.getEmail() << " [Expected: 8]" << endl << endl;
 
@@ -54,8 +54,8 @@ int main()
 	cout << "p.setDateOfBirth(30, 12, 1984)" << endl;
 	p.setDateOfBirth(30, 12, 1984);
 	struct tm bday2 = p.getDateOfBirth();
-	cout << "Date of birth: " << bday2.tm_mon << "/" << bday2.tm_mday << "/"
-		 << bday2.tm_year << " [Expected: 12/30/84]" << endl << endl;
+	cout << "Date of birth: " << (bday2.tm_mon + 1) << "/" << bday2.tm_mday << "/"
+		 << (bday2.tm_year + 1900) << " [Expected: 12/30/1984]" << endl << endl;
 
 	cout << "p.setAddress(\"Cleveland and Los Angeles\")" << endl;
 	p.setAddress("Cleveland and Los Angeles");
@@ -118,7 +118,7 @@ int main()
 	cout << "clearer: ++++++++++++++++++++" << endl;
 	st1.clearCourses();
 	st1.printCourse();
-	cout << "[]" << endl << endl;*/
+	cout << "[]" << endl << endl;
 
 	cout << "----------------------------------------------" << endl << endl;
 
@@ -165,7 +165,7 @@ int main()
 	cout << st1.isFullTime() << endl;
 	cout << "[false]" << endl << endl;
 
-	cout << "----------------------------------------------" << endl << endl;
+	cout << "----------------------------------------------" << endl << endl;*/
 
 	return 0;
 }
