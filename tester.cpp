@@ -1,10 +1,41 @@
 #include <iostream>
 #include "Person.h"
+#include "Student.h"
 
 using namespace std;
 
 int main()
 {
+
+	cout << "Testing Person" << endl;
+	cout << "--------------------------------------------" << endl << endl;
+
+	cout << "Testing constructors" << endl;
+	cout << "--------------------------------------------" << endl << endl;
+
+	cout << "Person a(1, \"2\", \"3\", \"4\", 5, 6, 1907, \"8\", \"9\", 10);" << endl;
+	Person a(1, "2", "3", "4", 5, 6, 1907, "8", "9", 10);
+
+	cout << "Person b(a);" << endl << endl;
+	Person b(a);
+
+	cout << "URID: " << b.getURID() << " [Expected: 1]" << endl << endl;
+
+	cout << "NetID: " << b.getNetID() << " Expected: 2]" << endl << endl;
+
+	cout << "Last Name: " << b.getLastName() << " [Expected: 3]" << endl << endl;
+
+	cout << "First Name: " << b.getFirstName() << " [Expected: 4]" << endl << endl;
+
+	struct tm bday = b.getDateOfBirth();
+	cout << "Date of birth: " << bday.tm_mon << "/" << bday.tm_mday << "/"
+		 << bday.tm_year << " [Expected: 5/6/1907]" << endl << endl;
+
+	cout << "Email: " << b.getEmail() << " [Expected: 8]" << endl << endl;
+
+	cout << "Address: " << b.getAddress() << " [Expected: 9]" << endl << endl;
+
+	cout << "Phone: " << b.getPhone() << " [Expected: 10]" << endl << endl;
 
 	cout << "Testing getters/setters:" << endl;
 	cout << "--------------------------------------------" << endl << endl;
@@ -22,9 +53,9 @@ int main()
 
 	cout << "p.setDateOfBirth(30, 12, 1984)" << endl;
 	p.setDateOfBirth(30, 12, 1984);
-	struct tm year = p.getDateOfBirth();
-	cout << "Date of birth: " << year.tm_mon << "/" << year.tm_mday << "/"
-		 << year.tm_year << " [Expected: 12/30/1984]" << endl << endl;
+	struct tm bday2 = p.getDateOfBirth();
+	cout << "Date of birth: " << bday2.tm_mon << "/" << bday2.tm_mday << "/"
+		 << bday2.tm_year << " [Expected: 12/30/1984]" << endl << endl;
 
 	cout << "p.setAddress(\"Cleveland and Los Angeles\")" << endl;
 	p.setAddress("Cleveland and Los Angeles");
@@ -36,7 +67,7 @@ int main()
 
 	cout << "p.setURID(23)" << endl;
 	p.setURID(23);
-	cout << "URID: " << p.getNetID() << " [Expected: 23]" << endl << endl;
+	cout << "URID: " << p.getURID() << " [Expected: 23]" << endl << endl;
 
 	cout << "p.setEmail(\"goat@goat.com\")" << endl;
 	p.setEmail("goat@goat.com");
