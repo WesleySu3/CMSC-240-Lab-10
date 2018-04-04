@@ -86,7 +86,7 @@ int main()
 	Student st0(const Student& p);
 	
 	Student st1(12345678, "ab1cd", "Bee", "Apple", 1, 1, 2000, "apple.bee@richmond.edu",
-        "28 Westhampton Way", 804123123, 1, 9, 2013, Student::AS, true, 15.5);
+        "28 Westhampton Way", 804123123, 1, 9, 2013, Student::UNDEFINED, true, 2.0);
 
         cout << "Test courses methods(getter/setter/remover/etc):" << endl;
         cout << "------------------------------------" << endl << endl;
@@ -119,6 +119,53 @@ int main()
 	st1.clearCourses();
 	st1.printCourse();
 	cout << "[]" << endl << endl;*/
+
+	cout << "----------------------------------------------" << endl << endl;
+
+	cout << "Test other getters:" << endl;
+	cout << "------------------------------------" << endl << endl;
+
+	cout << st1.getAdmitDate().tm_mon << "/" << st1.getAdmitDate().tm_mday <<
+		"/" << st1.getAdmitDate().tm_year << endl;
+	cout << "[9/1/2013]" << endl << endl;
+
+	cout << st1.getSchool() << endl;
+	cout << "[UNDEFINED]" << endl << endl;
+
+	cout << st1.getGPA() << endl;
+	cout << "[0.0]" << endl << endl;
+
+	cout << st1.getUnitsCompleted() << endl;
+	cout << "[2.0]" << endl << endl;
+
+	cout << st1.isFullTime() << endl;
+	cout << "[true]" << endl << endl;
+
+	cout << "----------------------------------------------" << endl << endl;
+
+	cout << "Test other setters:" << endl;
+	st1.setAdmitDate(1, 5, 2014);
+	cout << st1.getAdmitDate().tm_mon << "/" << st1.getAdmitDate().tm_mday <<
+                "/" << st1.getAdmitDate().tm_year << endl;
+	cout << "[5/1/2014]" << endl << endl;
+
+	st1.setSchool(Student::AS);
+	cout << st1.getSchool() << endl;
+	cout << "[AS]" endl << endl;
+
+	st1.setGPA(4.0);
+	cout << st1.getGPA() << endl;
+	cout << "[4.0]" << endl << endl;
+
+	st1.setUnitsCompleted(10.0);
+	cout << st1.getUnitsCompleted() << endl;
+	cout << "[10.0]" << endl << endl;
+
+	st1.setFullTimeStatus(false);
+	cout << st1.isFullTime() << endl;
+	cout << "[false]" << endl << endl;
+
+	cout << "----------------------------------------------" << endl << endl;
 
 	return 0;
 }
