@@ -3,7 +3,9 @@
 #include <iostream>
 
 Student::Student() : Person(){}
-Student::Student(const Student& other) : Person(other){}
+Student::Student(const Student& other) : Person(other) {
+}
+
 Student::Student(int urid, std::string netid, std::string lname, std::string fname,
                int dob_day, int dob_mo, int dob_yr,
                std::string email, std::string address, long phone,
@@ -12,8 +14,9 @@ Student::Student(int urid, std::string netid, std::string lname, std::string fna
                double units_completed) : Person(urid, netid, lname, fname, dob_day,
                dob_mo, dob_yr, email, address, phone) {
         dateAdmit.tm_mday = day_admit;
-        dateAdmit.tm_mon = month_admit;
-        dateAdmit.tm_year = year_admit;
+        dateAdmit.tm_mon = month_admit - 1;
+        dateAdmit.tm_year = year_admit - 1990;
+	gpa = 0.0;
         this->school = school;
         this->is_full_time = is_full_time;
         this->units_completed = units_completed;
@@ -77,7 +80,7 @@ bool Student::isFullTime() {
 void Student::setAdmitDate(int day, int month, int year) {
         dateAdmit.tm_mday = day;
         dateAdmit.tm_mon = month - 1;
-        dateAdmit.tm_year = year;
+        dateAdmit.tm_year = year - 1990;
 }
 
 void Student::setSchool(School school) {
