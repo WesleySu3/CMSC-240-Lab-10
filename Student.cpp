@@ -96,3 +96,7 @@ void Student::setFullTimeStatus(bool isFullTime) {
         is_full_time = isFullTime;
 }
 
+//added comment
+//another comment
+//third comment
+
