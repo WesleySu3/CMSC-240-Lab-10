@@ -25,7 +25,7 @@ int main()
 	p.setDateOfBirth(30, 12, 1984);
 	struct tm year = p.getDateOfBirth();
 	cout << "Date of birth: " << year.tm_mon << "/" << year.tm_mday << "/"
-		 << year.tm_year << " [Expected: 12/30/1984]" << endl << endl;
+		 << year.tm_year << " [Expected: 12/30/84]" << endl << endl;
 
 	cout << "p.setAddress(\"Cleveland and Los Angeles\")" << endl;
 	p.setAddress("Cleveland and Los Angeles");
@@ -37,7 +37,7 @@ int main()
 
 	cout << "p.setURID(23)" << endl;
 	p.setURID(23);
-	cout << "URID: " << p.getNetID() << " [Expected: 23]" << endl << endl;
+	cout << "URID: " << p.getURID() << " [Expected: 23]" << endl << endl;
 
 	cout << "p.setEmail(\"goat@goat.com\")" << endl;
 	p.setEmail("goat@goat.com");
