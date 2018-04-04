@@ -72,7 +72,7 @@ struct tm    Person::getDateOfBirth()
 {
 	struct tm year;
 	year.tm_mday = this->birthDay;
-	year.tm_mon = this->(birthMonth - 1);
+	year.tm_mon = (this->birthMonth - 1);
 	year.tm_year = (this->birthYear - 1900);
 	return year;
 }
