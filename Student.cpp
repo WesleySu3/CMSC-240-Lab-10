@@ -2,8 +2,25 @@
 #include <string>
 #include <iostream>
 
-Student::Student() : Person(){}
+Student::Student() : Person() {
+	//give default values to the instance variables
+	dateAdmit.tm_mday = 1; 
+        dateAdmit.tm_mon = 0;
+        dateAdmit.tm_year = 0;
+        gpa = 0.0;
+        this->school = Student::UNDEFINED;
+        this->is_full_time = false;
+        this->units_completed = 0.0; 
+}
+
 Student::Student(const Student& other) : Person(other) {
+	dateAdmit.tm_mday = other.dateAdmit.tm_mday; 
+        dateAdmit.tm_mon = other.dateAdmit.tm_mon;
+        dateAdmit.tm_year = other.dateAdmit.tm_year;
+        gpa = other.gpa;
+        school = other.school;
+        is_full_time = other.is_full_time;
+        units_completed = other.units_completed;
 }
 
 Student::Student(int urid, std::string netid, std::string lname, std::string fname,
@@ -21,6 +38,7 @@ Student::Student(int urid, std::string netid, std::string lname, std::string fna
         this->is_full_time = is_full_time;
         this->units_completed = units_completed;
 }
+
 Student::~Student(){}
 
 std::list<std::string> Student::getCourse() {

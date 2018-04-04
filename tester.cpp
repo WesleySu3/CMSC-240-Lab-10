@@ -118,7 +118,7 @@ int main()
 	
 	cout << "clearer: ++++++++++++++++++++" << endl;
 	st1.clearCourses();
-	st1.printCourse();
+	st1.printCourses();
 
 	st1.printCourses();
 	cout << "[]" << endl << endl;
