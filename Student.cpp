@@ -10,7 +10,7 @@ Student::Student(int urid, std::string netid, std::string lname, std::string fna
                int day_admit, int month_admit, int year_admit,
                School school, bool is_full_time,
                double units_completed) : Person(urid, netid, lname, fname, dob_day,
-               dob_month, dob_year, email, address, phone) {
+               dob_mo, dob_yr, email, address, phone) {
         dateAdmit.tm_mday = day_admit;
         dateAdmit.tm_mon = month_admit;
         dateAdmit.tm_year = year_admit;
@@ -76,7 +76,7 @@ bool Student::isFullTime() {
 
 void Student::setAdmitDate(int day, int month, int year) {
         dateAdmit.tm_mday = day;
-        dateAdmit.tm_mon = month;
+        dateAdmit.tm_mon = month - 1;
         dateAdmit.tm_year = year;
 }
 

@@ -79,7 +79,7 @@ int main()
 
 	
 
-	/*cout << "Test Student:---------------------------------" << endl << endl;
+	cout << "Test Student:---------------------------------" << endl << endl;
 	
 	cout << "Test Constructor: --------------------------------" << endl << endl;
 
@@ -101,6 +101,7 @@ int main()
 
 	cout << "getter: ++++++++++++++++++++" << endl;
 	list<string> currentCourse = st1.getCourse();
+	list<string>::iterator itr;
 	for (itr = currentCourse.begin(); itr != currentCourse.end(); ++itr)
                 std::cout << *itr << std::endl;
 	cout << "[cs150" << endl << " cs221]" << endl << endl;
@@ -111,14 +112,14 @@ int main()
 	cout << "[cs150" << endl << " cs221" << endl << " cs240]" << endl << endl; 
 
 	cout << "remover: ++++++++++++++++++++" << endl;
-	st1.removeCourses("cs150");
+	st1.removeCourse("cs150");
 	st1.printCourses();
 	cout << "[cs221" << endl << " cs240]" << endl << endl;
 	
 	cout << "clearer: ++++++++++++++++++++" << endl;
 	st1.clearCourses();
-	st1.printCourse();
-	cout << "[]" << endl << endl;*/
+	st1.printCourses();
+	cout << "[]" << endl << endl;
 
 	cout << "----------------------------------------------" << endl << endl;
 
@@ -151,7 +152,7 @@ int main()
 
 	st1.setSchool(Student::AS);
 	cout << st1.getSchool() << endl;
-	cout << "[AS]" endl << endl;
+	cout << "[AS]" << endl << endl;
 
 	st1.setGPA(4.0);
 	cout << st1.getGPA() << endl;
