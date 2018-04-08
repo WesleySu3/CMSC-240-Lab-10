@@ -1,3 +1,5 @@
+//Name: Maxine Xin
+//Partner name: Wesley Su
 #include "Student.h"
 #include <string>
 #include <iostream>
@@ -117,7 +119,4 @@ void Student::setFullTimeStatus(bool isFullTime) {
         is_full_time = isFullTime;
 }
 
-//added comment
-//another comment
-//third comment
 

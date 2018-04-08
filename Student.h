@@ -1,3 +1,5 @@
+//Name: Maxine Xin
+//Partner name: Wesley Su
 #ifndef __STUDENT_H__
 #define __STUDENT_H__
 
@@ -11,7 +13,6 @@ class Student : public Person {
                 enum School {AS, JSLS, LAW, RSB, SPCS, UNDEFINED};
 
         protected:
-                // instance variables here...
                 struct tm dateAdmit;
                 Student::School school;
                 double gpa;

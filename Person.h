@@ -1,3 +1,5 @@
+//Name: Maxine Xin
+//Partner name: Wesley Su
 #ifndef __PERSON_H__
 #define __PERSON_H__
 
