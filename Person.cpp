@@ -1,3 +1,5 @@
+// Wesley Su and Maxine Xin
+
 #ifndef __PERSON_CPP__
 #define __PERSON_CPP__
 
@@ -6,7 +8,7 @@
 //-----------------------------
 // Constructors
 
-
+// default constructor
 Person::Person()
 {
 	firstName = "";
@@ -21,6 +23,7 @@ Person::Person()
 	URID = 0;
 }
 
+// copy constructor
 Person::Person(const Person& other)
 {
 	this->firstName = other.firstName;
@@ -35,6 +38,7 @@ Person::Person(const Person& other)
 	this->URID = other.URID;
 }
 
+// contructor with user-assigned values
 Person::Person(int urid, std::string netid, std::string lname, std::string fname, 
     int dob_day, int dob_month, int dob_year,
     std::string email, std::string address, long phone)

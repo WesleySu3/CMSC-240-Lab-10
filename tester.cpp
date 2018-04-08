@@ -1,3 +1,5 @@
+// Wesley Su and Maxine Xin
+
 #include <iostream>
 #include "Person.h"
 #include "Student.h"
