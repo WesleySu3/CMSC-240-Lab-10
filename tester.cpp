@@ -12,7 +12,7 @@ int main()
 	cout << "Testing Person" << endl;
 	cout << "--------------------------------------------" << endl << endl;
 
-	cout << "Testing constructors" << endl;
+	cout << "Testing non-default constructors" << endl;
 	cout << "--------------------------------------------" << endl << endl;
 
 	cout << "Person a(1, \"2\", \"3\", \"4\", 5, 6, 2018, \"8\", \"9\", 10);" << endl;
@@ -39,7 +39,7 @@ int main()
 
 	cout << "Phone: " << b.getPhone() << " [Expected: 10]" << endl << endl;
 
-	cout << "Testing getters/setters:" << endl;
+	cout << "Testing getters/setters w/ default person:" << endl;
 	cout << "--------------------------------------------" << endl << endl;
 
 	cout << "Person p;" << endl;
