@@ -1,5 +1,5 @@
-//Name: Maxine Xin
-//Partner name: Wesley Su
+// Wesley Su and Maxine Xin
+
 #include "Student.h"
 #include <string>
 #include <iostream>
