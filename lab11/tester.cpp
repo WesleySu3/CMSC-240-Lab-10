@@ -6,6 +6,8 @@ using namespace std;
 int main() {
 	cout << "Test LinkedList:-----------------" << endl << endl;
         LinkedList<int> l;
+
+	// getter need test out of bound
 	cout << "Test add, size, get: +++++++++++++++++++" << endl << endl;
 	cout << "before add:" << endl;
 	cout << "size:" << endl;
@@ -19,6 +21,7 @@ int main() {
 	cout << "size:" << endl;
 	cout << l.size() << " -- [2]" << end;
 
+	//need out of bound
 	cout << "Test remove: +++++++++++++" << endl << endl;
 	cout << "remove index 0: " << l.remove(0) << " -- [1]" << endl;
 	
