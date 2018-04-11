@@ -78,7 +78,7 @@ T LinkedList<T>::remove(int index)
 	
     advance(it, index);
     T rmvEle = *it;
-    it = theList.erase(it);
+    theList.erase(it);
     return rmvEle;
 }
 
