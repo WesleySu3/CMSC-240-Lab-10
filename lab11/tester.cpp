@@ -19,9 +19,12 @@ int main() {
 	cout << "size:" << endl;
 	cout << l.size() << " -- [2]" << end;
 
+	cout << "Test remove: +++++++++++++" << endl << endl;
+	cout << "remove index 0: " << l.remove(0) << " -- [1]" << endl;
 	
-	
+	cout << "Test toArray: ++++++++++++" << endl << endl;
 
+	cout << "Test operator: ++++++++++++" << endl << endl;
 		
 
 
