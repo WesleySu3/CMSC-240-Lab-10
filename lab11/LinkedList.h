@@ -19,25 +19,97 @@ class LinkedList
      void add(T element);
 
      T get(int index) const;
-     T remove(int index);
+     T remove(int index); 
 
      std::vector<T> toArray() const;
 
      LinkedList<T>& operator+=( const T& item );
 };
 
-template <class T> LinkedList<T>::LinkedList() {}
-template <class T> LinkedList<T>::~LinkedList() {}
+// default constrcutor
+template <class T>
+LinkedList<T>::LinkedList() {}
 
-template<class T>
+// destructor
+template <class T>
+LinkedList<T>::~LinkedList() {}
+
+// copy constructor
+template <class T>
 LinkedList<T>::LinkedList(const LinkedList<T>& other)
 {
-     typename std::list<T>::iterator itr = other.theList.begin();
-     while (itr != other,theList.end())
-     {
-          theList.push_back(*itr);
-          itr++;
-     }
+    typename std::list<T>::iterator it = other.theList.begin();
+    while (it != other.theList.end())
+    {
+        theList.push_back(*it);
+        it++;
+    }
 }
-#endif
 
+template <class T> 
+void LinkedList<T>::add(T element)
+{
+    theList.push_back(element);
+}
+
+
+template <class T>
+int LinkedList<T>::size() const
+{
+    return theList.size();
+}
+
+
+template <class T>
+T LinkedList<T>::get(int index) const
+{
+    typename std::list<T>::iterator it = other.theList.begin();
+
+    advance(it, element)
+    return *it;
+}
+
+
+/*
+template <class T>
+T LinkedList<T>::remove(int index)
+{
+
+}
+*/
+
+
+template <class T>
+vector<T> LinkedList<T>::toArray() const
+{
+    std::vector<T> newArray;
+
+    typename std::list<T>::iterator it = other.theList.begin();
+    while (it != other.theList.end())
+    {
+        newArray.push_back(*it);
+        it++;
+
+        return newArray;
+    }
+}
+
+
+/*
+template <class T>
+LinkedList<T>& LinkedList<T>::operator+=(const T& item)
+{
+
+}
+*/
+
+
+
+
+
+
+
+
+
+
+#endif
