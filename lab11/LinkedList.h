@@ -99,13 +99,13 @@ std::vector<T> LinkedList<T>::toArray() const
 }
 
 
-/*
+
 template <class T>
 LinkedList<T>& LinkedList<T>::operator+=(const T& item)
 {
-
+    theList.push_back(item);
+    return(*this);
 }
-*/
 
 
 
