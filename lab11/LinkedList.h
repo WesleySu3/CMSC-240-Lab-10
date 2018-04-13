@@ -38,7 +38,7 @@ LinkedList<T>::~LinkedList() {}
 template <class T>
 LinkedList<T>::LinkedList(const LinkedList<T>& other)
 {
-    typename std::list<T>::iterator it = other.theList.begin();
+    typename std::list<T>::const_iterator it = other.theList.begin();
     while (it != other.theList.end())
     {
         theList.push_back(*it);

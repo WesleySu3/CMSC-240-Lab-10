@@ -87,7 +87,17 @@ int main() {
 
 		
 	cout << "Test copy constructor: ++++++++++" << endl << endl;
-	//LinkedList<char> c2(c1);
+
+	cout << "LinkedList<char> c2(c1);" << endl;
+	LinkedList<char> c2(c1);
+
+	cout << "c2:";
+	for (int i = 0; i < c2.size(); i++)
+	{
+		cout << c2.get(i) << " ";
+	}
+	cout << "-- [a b c]" << endl << endl;
+
     
 
 
