@@ -1,8 +1,13 @@
+//Name: Wesley Su
+//Name: Maxine Xin
+
 #ifndef __LINKEDLIST_H__
 #define __LINKEDLIST_H__
 
 #include <list>
 #include <vector>
+#include <sstream>
+#include <stdexcept>
 
 template <class T>
 class LinkedList
@@ -63,10 +68,21 @@ int LinkedList<T>::size() const
 template <class T>
 T LinkedList<T>::get(int index) const
 {
-    typename std::list<T>::const_iterator it = theList.begin();
-
-    advance(it, index);
-    return *it;
+    if (index >= 0 && index < theList.size()) 
+    {
+    	typename std::list<T>::const_iterator it = theList.begin();
+    	advance(it, index);
+    	return *it;
+    }
+    //if out of bound then throw invalid_argument exception
+    std::stringstream ss;
+    int size = theList.size();
+    if (size == 0) 
+    	ss << "invalid attempt to retrieve from empty list";
+    else 
+	ss << "invalid index: " << index << "   list size: " << size;
+    std::string str = ss.str();
+    throw std::invalid_argument(str.c_str());
 }
 
 
@@ -74,12 +90,23 @@ T LinkedList<T>::get(int index) const
 template <class T>
 T LinkedList<T>::remove(int index)
 {
-    typename std::list<T>::iterator it = theList.begin();
+    if (index >= 0 && index < theList.size())
+    {
+    	typename std::list<T>::iterator it = theList.begin();
 	
-    advance(it, index);
-    T rmvEle = *it;
-    theList.erase(it);
-    return rmvEle;
+	 advance(it, index);
+   	 T rmvEle = *it;
+   	 theList.erase(it);
+   	 return rmvEle;
+    }
+    std::stringstream ss;
+    int size = theList.size();
+    if (size == 0)
+        ss << "invalid attempt to remove from empty list";
+    else
+        ss << "invalid index: " << index << "   list size: " << size;
+    std::string str = ss.str();
+    throw std::invalid_argument(str.c_str());
 }
 
 
@@ -106,14 +133,5 @@ LinkedList<T>& LinkedList<T>::operator+=(const T& item)
     theList.push_back(item);
     return(*this);
 }
-
-
-
-
-
-
-
-
-
 
 #endif

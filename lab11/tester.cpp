@@ -1,3 +1,5 @@
+//Name: Wesley Su
+//Name: Maxine Xin
 #include <iostream>
 #include "LinkedList.h"
 
@@ -7,27 +9,72 @@ int main() {
 	cout << "Test LinkedList:-----------------" << endl << endl;
     	LinkedList<int> l;
 
-	// getter need test out of bound
 	cout << "Test add, size, get: +++++++++++++++++++" << endl << endl;
 	cout << "before add:" << endl;
 	cout << "size:" << endl;
-	cout << l.size() << " -- [0]" << endl << endl;
-	
+	cout << l.size() << " -- [0]" << endl;
+	cout << "get from empty list: " << endl;
+	try {
+		cout << l.get(0) << endl;
+	}	
+	catch (const exception& err1) {
+		cerr << err1.what();
+	}
+	cout << " -- [invalid attempt to retrieve from empty list]" << endl << endl;
 
 	cout << "after add:" << endl;
 	l.add(1);
 	l.add(2);
 	cout << "get index 0: " << l.get(0) << " -- [1]" << endl;
 	cout << "get index 1: " <<  l.get(1) << " -- [2]" << endl;
+	cout << "get index 2(out of bound):" << endl;
+	try {
+		cout << l.get(2) << endl;
+	}
+	catch (const exception& err2) {
+                cerr << err2.what();
+        }
+	cout << " -- [invalid index: 2   list size: 2]" << endl;
+	
+	cout << "get index -1(out of bound):" << endl;
+        try {
+                cout << l.get(-1) << endl;
+        }
+        catch (const exception& err3) {
+                cerr << err3.what();
+        }
+        cout << " -- [invalid index: -1   list size: 2]" << endl;
 	cout << "size:" << endl;
 	cout << l.size() << " -- [2]" << endl << endl;
 
 	
-	//need out of bound
 	cout << "Test remove: +++++++++++++" << endl << endl;
+	cout << "remove index -2(out of bound): " << endl;
+	try {
+		cout << l.remove(-2) << endl;
+	}
+	catch (const exception& err4) {
+                cerr << err4.what();
+        }
+	cout << " -- [invalid index: -2   list size: 2]" << endl;
+	cout << "remove index 10(out of bound): " << endl;
+        try {
+                cout << l.remove(10) << endl;
+        }
+        catch (const exception& err5) {
+                cerr << err5.what();
+        }
+        cout << " -- [invalid index: 10   list size: 2]" << endl;
 	cout << "remove index 1: " << l.remove(1) << " -- [2]" << endl;
 	cout << "remove index 0: " << l.remove(0) << " -- [1]" << endl << endl;
-	
+	cout << "remove from empty list: " << endl;
+	try {
+                cout << l.remove(5) << endl;
+        }
+        catch (const exception& err6) {
+                cerr << err6.what();
+        }
+	cout << " -- [invalid attempt to remove from empty list]" << endl << endl;
 
 	cout << "Test toArray: ++++++++++++" << endl << endl;
 	cout << "empty list:" << endl;
